@@ -9,15 +9,15 @@ REGEX1 = "[a-zA-Z0-9_-]+[.]txt"
 REGEX2 = "[a-zA-Z0-9_-]+[.]md"
 
 def test_get_regex():
-    filename = "tests/config_test1.txt"
+    filename = "tests/test_configs/config_test1.txt"
     result = []
     assert_equal(logfind.get_regex(filename), result)
 
-    filename = "tests/config_test2.txt"
+    filename = "tests/test_configs/config_test2.txt"
     result = [REGEX1]
     assert_equal(logfind.get_regex(filename), result)
 
-    filename = "tests/config_test3.txt"
+    filename = "tests/test_configs/config_test3.txt"
     result = [REGEX1, REGEX2]
     assert_equal(logfind.get_regex(filename), result)
 
