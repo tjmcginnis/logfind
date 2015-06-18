@@ -16,6 +16,7 @@ def get_regex(filename):
             result.append(line.strip())
     return result
 
+
 def build_regex(contents):
     """Accepts a list of regular expressions as strings and compiles
     into one RegEx.
@@ -27,9 +28,13 @@ def build_regex(contents):
         master_regex += string + "|"
     return re.compile(master_regex[:-1])
 
+
 def get_log_files(log_directory):
     """Returns a list of all log files in log directory"""
-    pass
+    result = []
+    for root, dirs, files in os.walk(log_directory):
+        result.extend([os.path.join(root, f) for f in files])
+    return result
 
 # scan files for string(s) given in command line arguments
     # parse command line arguments
