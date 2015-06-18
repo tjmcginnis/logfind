@@ -4,37 +4,6 @@ import re
 import sys
 import argparse
 
-from logfind import scanner
+from logfind import logfind
 
-
-parser = argparse.ArgumentParser(description=
-        "Scan all logfiles that have at least one instance of some text")
-parser.add_argument('keywords',  help='strings to find in the log files')
-parser.add_argument('-o', help='Search with or logic as default',
-                action="store_true")
-
-args = parser.parse_args()
-search_terms = args.keywords
-
-#if args.o:
-#    print "Or logic"
-
-home = os.path.expanduser("~")
-filename = os.path.join(home, '.logfind')
-
-regex = []
-with open(filename) as f:
-    for line in f.readlines():
-        regex.append(re.compile(line.strip()))
-
-files = [f for f in os.listdir('.') if os.path.isfile(f)]
-result = []
-for file in files:
-    with open(file) as f:
-        for regexp in regex:
-            if re.match(regexp, file):
-                if scanner.scan(f.read(), search_terms):
-                    result.append(file)
-
-for res in result:
-    print res
+logfind.logfind()

@@ -7,9 +7,8 @@ def setup_and():
 
 
 def setup_or():
-    return scanner.Scanner('-o')
+    return scanner.Scanner(True)
 
-"""
 def test_scan_with_and():
     scanner = setup_and()
     keyword = "pelican"
@@ -36,4 +35,3 @@ def test_scan_with_or():
 
     search_string = "dubs from california won it all"
     assert_equal(scanner.scan(search_string, keywords), False)
-"""

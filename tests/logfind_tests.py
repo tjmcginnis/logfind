@@ -5,10 +5,8 @@ from nose.tools import *
 from logfind import logfind
 
 
-REGEX1 = "[a-zA-Z0-9]+[.]txt"
-REGEX2 = "[a-zA-Z0-9]+[.]md"
-LOG_DIR = os.path.abspath("tests/test_logs")
-PROJECT_DIR = os.path.realpath("logfind")
+REGEX1 = "[a-zA-Z0-9_-]+[.]txt"
+REGEX2 = "[a-zA-Z0-9_-]+[.]md"
 
 def test_get_regex():
     filename = "tests/config_test1.txt"
@@ -39,13 +37,21 @@ def test_build_regex():
 
 
 def test_get_log_files():
-    filename1 = os.path.join(LOG_DIR, "test_log1.txt")
-    filename2 = os.path.join(LOG_DIR, "test_log2.txt")
-    filename3 = os.path.join(LOG_DIR, "test_log3.md")
-    filename4 = os.path.join(LOG_DIR, "inner/test_log4.txt")
-    result = logfind.get_log_files(LOG_DIR)
+    pass
 
-    assert_in(filename1, result)
-    assert_in(filename2, result)
-    assert_in(filename3, result)
-    assert_in(filename4, result)
+def test_match_files():
+    files = []
+    regexp = re.compile(REGEX1)
+    assert_equal(logfind.match_files(files, regexp), [])
+
+    files = ["test_log1.txt"]
+    assert_equal(logfind.match_files(files, regexp), files)
+
+    files.append("test_log2.txt")
+    assert_equal(logfind.match_files(files, regexp), files)
+
+    files.append("test_log3.md")
+    assert_equal(logfind.match_files(files, regexp), files[:2])
+
+    regexp = re.compile(REGEX1 + "|" + REGEX2)
+    assert_equal(logfind.match_files(files, regexp), files)

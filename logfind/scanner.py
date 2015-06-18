@@ -1,9 +1,9 @@
 class Scanner(object):
     def __init__(self, flag=None):
-        self.flag = flag
+        self.or_flag = flag
 
     def scan(self, s, k):
-        if self.flag == '-o':
+        if self.or_flag == True:
             return self.scan_with_or(s, k)
         else:
             return self.scan_with_and(s, k)
