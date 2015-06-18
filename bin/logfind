@@ -4,7 +4,7 @@ import re
 import sys
 import argparse
 
-from logfind.parser import parse
+from logfind import scanner
 
 
 parser = argparse.ArgumentParser(description=
@@ -33,7 +33,7 @@ for file in files:
     with open(file) as f:
         for regexp in regex:
             if re.match(regexp, file):
-                if parse(f.read(), search_terms):
+                if scanner.scan(f.read(), search_terms):
                     result.append(file)
 
 for res in result:
