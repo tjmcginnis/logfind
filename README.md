@@ -8,8 +8,13 @@ Logfind is a simple version of grep.
 # Installing
 
 # Usage
+Search for a single word using default (AND) logic:
 `$ logfind apple`
+
+Search for a string of text using default (AND) logic:
 `$ logfind "string to find"`
+
+Search using OR logic:
 `$ logfind apple -o`
 
 # Source
