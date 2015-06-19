@@ -1,6 +1,22 @@
-### To Do List
-Write README
+Logfind
+---
 
-Add RegEx functionality for CLAs
+Logfind is a simple version of grep.
 
-package code, make installable
+## Features
+---
+
+## Installing
+---
+
+## Usage
+---
+
+## Source
+---
+
+## To Do List
+---
+* README
+* Add RegEx parsing for command line args
+* Create source distribution
