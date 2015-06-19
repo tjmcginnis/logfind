@@ -1,8 +1,8 @@
 ### To Do List
-write test_logfind.sh tests
+test_logfind.sh
 
-write README
+Write README
 
-Add RegEx functionality for command line arg
+Add RegEx functionality for CLAs
 
-package code, figure out how to make installable
+package code, make installable
