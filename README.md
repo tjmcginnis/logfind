@@ -8,8 +8,12 @@ Logfind is a simple version of grep.
 # Installing
 
 # Usage
+`$ logfind apple`
+`$ logfind "string to find"`
+`$ logfind apple -o`
 
 # Source
+Source is available here: http://github.com/tylerm-/logfind
 
 # To Do List
 * README
