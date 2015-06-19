@@ -12,11 +12,12 @@ directory containing that string.
 * Default search uses AND logic, use -o flag to use OR logic instead
 
 # Installing
-Download xyz.tar.gz
+For now, follow these steps:
+1. Download the source code
+2. Run `$ python setup.py sdist`
+3. Run `$ pip install dist/logfind-0.1.tar.gz`
 
-Run:
-
-`$ pip install xyz.tar.gz`
+And you're good to go!
 
 # Usage
 Search for a single word using default (AND) logic:
@@ -38,9 +39,13 @@ Example ~/.logfind file:
 [a-xA-Z_-]+[.]log
 ```
 
+# Uninstalling
+Just run:
+
+`pip uninstall logfind`
+
 # Source
 Source is available here: http://github.com/tylerm-/logfind
 
 # To Do List
 * Add RegEx parsing for command line args
-* Create source distribution

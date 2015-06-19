@@ -1,2 +1,5 @@
+.*.sw*
 *.pyc
-test.txt
+dist/
+build/
+*.egg-info/
