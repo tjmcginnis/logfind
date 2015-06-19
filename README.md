@@ -43,7 +43,7 @@ Example ~/.logfind file:
 # Uninstalling
 Just run:
 
-`pip uninstall logfind`
+`$ pip uninstall logfind`
 
 # Source
 Source is available here: http://github.com/tylerm-/logfind
