@@ -3,20 +3,15 @@ Logfind
 
 Logfind is a simple version of grep.
 
-## Features
----
+# Features
 
-## Installing
----
+# Installing
 
-## Usage
----
+# Usage
 
-## Source
----
+# Source
 
-## To Do List
----
+# To Do List
 * README
 * Add RegEx parsing for command line args
 * Create source distribution
