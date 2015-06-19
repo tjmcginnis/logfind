@@ -7,8 +7,9 @@ import scanner
 
 
 CONFIG_FILE = os.path.join(os.path.expanduser('~'), '.logfind')
+SEARCH_DIR = '.'
 
-def get_regex(filename):
+def get_lines(filename):
     """Returns each line from file as list, stripped of newlines"""
     result = []
     with open(filename) as f:
@@ -18,9 +19,7 @@ def get_regex(filename):
 
 
 def build_regex(contents):
-    """Accepts a list of regular expressions as strings and compiles
-    into one RegEx.
-    """
+    """Accepts a list of strings and compiles into one RegEx."""
     master_regex = ""
     if not contents:
         return re.compile(master_regex)
@@ -29,9 +28,9 @@ def build_regex(contents):
     return re.compile(master_regex[:-1])
 
 
-def get_log_files():
+def get_files(directory):
     """Returns a list of all files in current directory"""
-    return [f for f in os.listdir('.') if os.path.isfile(f)]
+    return [f for f in os.listdir(directory) if os.path.isfile(f)]
 
 
 def match_files(log_files, regexp):
@@ -58,8 +57,8 @@ def run():
     keywords = args.keywords
     or_flag = args.o
 
-    important_files = build_regex(get_regex(CONFIG_FILE))
-    log_files = get_log_files()
+    important_files = build_regex(get_lines(CONFIG_FILE))
+    log_files = get_files(SEARCH_DIR)
     matches = match_files(log_files, important_files)
 
     file_scanner = scanner.Scanner(or_flag)

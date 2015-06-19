@@ -8,18 +8,18 @@ from logfind import logfind
 REGEX1 = "[a-zA-Z0-9_-]+[.]txt"
 REGEX2 = "[a-zA-Z0-9_-]+[.]md"
 
-def test_get_regex():
+def test_get_lines():
     filename = "tests/test_configs/config_test1.txt"
     result = []
-    assert_equal(logfind.get_regex(filename), result)
+    assert_equal(logfind.get_lines(filename), result)
 
     filename = "tests/test_configs/config_test2.txt"
     result = [REGEX1]
-    assert_equal(logfind.get_regex(filename), result)
+    assert_equal(logfind.get_lines(filename), result)
 
     filename = "tests/test_configs/config_test3.txt"
     result = [REGEX1, REGEX2]
-    assert_equal(logfind.get_regex(filename), result)
+    assert_equal(logfind.get_lines(filename), result)
 
 
 def test_build_regex():
@@ -36,8 +36,11 @@ def test_build_regex():
     assert_equal(logfind.build_regex(config), result)
 
 
-def test_get_log_files():
-    pass
+def test_get_files():
+    search_dir = '.'
+    readme = 'README.md'
+    assert_in(readme, logfind.get_files(search_dir))
+
 
 def test_match_files():
     files = []
