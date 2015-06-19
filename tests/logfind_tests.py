@@ -39,7 +39,10 @@ def test_build_regex():
 def test_get_files():
     search_dir = '.'
     readme = 'README.md'
-    assert_in(readme, logfind.get_files(search_dir))
+    setup = 'setup.py'
+    result = logfind.get_files(search_dir)
+    assert_in(readme, result)
+    assert_in(setup, result)
 
 
 def test_match_files():
