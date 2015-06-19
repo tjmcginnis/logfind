@@ -5,9 +5,6 @@ import argparse
 
 import scanner
 
-# open files based on regex in ~/.logfind file
-    # get list of regex from ~/.logfind
-    # get list of files in directory
 
 CONFIG_FILE = os.path.join(os.path.expanduser('~'), '.logfind')
 
@@ -46,7 +43,10 @@ def match_files(log_files, regexp):
     return result
 
 
-def logfind():
+def run():
+    """Return a list of files containing string specified at
+    command line.
+    """
     parser = argparse.ArgumentParser(description=
              "Scan all logfiles that have at least one instance of some text")
     parser.add_argument('keywords', help="strings to find in the log files")
@@ -69,15 +69,5 @@ def logfind():
             if file_scanner.scan(f.read(), keywords):
                 result.append(file)
 
-    return result
-
-
-# scan files for string(s) given in command line arguments
-    # parse command line arguments
-    # get contents of each file
-    # scan using AND logic
-    # scan using OR logic
-
-# return a list of all files that have one instance of the string(s)
-    # build list of files with a match
-
+    for file in result:
+        print file

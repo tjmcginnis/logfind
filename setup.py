@@ -11,7 +11,7 @@ config = {
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['logfind'],
-    'scripts': [],
+    'scripts': ['bin/logfind'],
     'name': 'logfind'
 }
 
