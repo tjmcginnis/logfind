@@ -13,6 +13,7 @@ directory containing that string.
 
 # Installing
 For now, follow these steps:
+
 1. Download the source code
 2. Run `$ python setup.py sdist`
 3. Run `$ pip install dist/logfind-0.1.tar.gz`
