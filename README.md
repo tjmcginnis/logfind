@@ -49,4 +49,4 @@ Just run:
 Source is available here: http://github.com/tylerm-/logfind
 
 # To Do List
-* Add RegEx parsing for command line args
+* Add RegEx parsing for command line args (roughly working now)

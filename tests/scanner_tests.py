@@ -9,6 +9,7 @@ def setup_and():
 def setup_or():
     return scanner.Scanner(True)
 
+
 def test_scan_with_and():
     scanner = setup_and()
     keyword = "pelican"
@@ -21,6 +22,9 @@ def test_scan_with_and():
 
     search_string = "the warriors from california won the championship"
     assert_equal(scanner.scan(search_string, keyword), False)
+
+    keyword = '[a-z]+rrior[a-z]'
+    assert_equal(scanner.scan(search_string, keyword), True)
 
 
 def test_scan_with_or():
@@ -35,3 +39,6 @@ def test_scan_with_or():
 
     search_string = "dubs from california won it all"
     assert_equal(scanner.scan(search_string, keywords), False)
+
+    keyword = '[a-z]+iforni[a-z]'
+    assert_equal(scanner.scan(search_string, keyword), True)

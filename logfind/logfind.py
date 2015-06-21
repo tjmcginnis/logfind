@@ -1,6 +1,5 @@
 import os
 import re
-import sys
 import argparse
 
 import scanner
@@ -8,6 +7,7 @@ import scanner
 
 CONFIG_FILE = os.path.join(os.path.expanduser('~'), '.logfind')
 SEARCH_DIR = '.'
+
 
 def get_lines(filename):
     """Returns each line from file as list, stripped of newlines"""
@@ -56,6 +56,7 @@ def run():
     args = parser.parse_args()
     keywords = args.keywords
     or_flag = args.o
+    # if or flag is set, regex should have | inserted"
 
     important_files = build_regex(get_lines(CONFIG_FILE))
     log_files = get_files(SEARCH_DIR)
