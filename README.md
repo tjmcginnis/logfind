@@ -1,5 +1,4 @@
 # Logfind
----
 
 Logfind is a simple version of grep. Search for a string and receive a list of files in the current
 directory containing that string.
@@ -10,6 +9,7 @@ directory containing that string.
 * Searches files in current directory for string specified at the command line
 * Returns a list of files containing the search string
 * Default search uses AND logic, use -o flag to use OR logic instead
+* Search using a regular expression instead of a string of text
 
 # Installing
 For now, follow these steps:
@@ -33,11 +33,19 @@ Search using OR logic:
 
 `$ logfind apple -o`
 
+Search using RegEx:
+
+`$ logfind \d`
+
+`$ logfind "the|then"`
+
+*Using quotation marks around the RegEx is probably the safest usage to avoid conflict with Bash characters*
+
 Example ~/.logfind file:
 
 ```
 [a-zA-Z0-9_-]+[.]txt
-[a-xA-Z_-]+[.]log
+[a-zA-Z_-]+[.]log
 ```
 
 # Uninstalling
@@ -49,4 +57,4 @@ Just run:
 Source is available here: http://github.com/tylerm-/logfind
 
 # To Do List
-* Add RegEx parsing for command line args (roughly working now)
+* More tests
