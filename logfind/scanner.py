@@ -19,8 +19,6 @@ class Scanner(object):
         for regexp in r:
             if re.search(regexp, s) is None:
                 return False
-            # if word not in s:
-            #     return False
         return True
 
     def scan_with_or(self, s, r):
@@ -28,6 +26,4 @@ class Scanner(object):
         for regexp in r:
             if re.search(regexp, s) is not None:
                 return True
-            # if word in s:
-            #     return True
         return False

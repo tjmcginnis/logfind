@@ -1,4 +1,4 @@
-Logfind
+# Logfind
 ---
 
 Logfind is a simple version of grep. Search for a string and receive a list of files in the current
