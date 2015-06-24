@@ -58,3 +58,4 @@ Source is available here: http://github.com/tylerm-/logfind
 
 # To Do List
 * More tests
+* Add more graceful error handling for regex that conflict with Bash characters
